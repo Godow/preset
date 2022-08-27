@@ -1,0 +1,23 @@
+{
+  "eslint.enable": true, //启用/禁用 vscode-eslint。默认情况下是启用的。
+  "eslint.alwaysShowStatus": true, // vscode右下角始终展示ESLint状态，建议打开
+"eslint.trace.server": "messages", // eslint打印详细日志['messages', 'verbose']
+  "eslint.codeAction.showDocumentation": { // 在“快速修复”菜单中显示“打开lint规则文档”网页。默认情况下为true
+    "enable": true
+  },
+  // 在保存的时候执行的操作
+  "editor.codeActionsOnSave": {
+    // 保存时用eslint格式化
+    "source.fixAll.eslint": true,
+  }
+// 检测指定文件，不在列表中不会检测。默认包含如下
+// "eslint.probe": [
+//   "javascript",
+//   "javascriptreact",
+//   "typescript",
+//   "typescriptreact",
+//   "html",
+//   "vue",
+//   "markdown"
+// ]
+}
