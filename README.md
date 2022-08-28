@@ -7,6 +7,7 @@
 - 实时提示代码质量问题
 
 ```json
+"editor.formatOnSave": false, // 关闭vscode内置/prettier的vscode插件自动格式化功能，防止与eslint冲突
 "eslint.enable": true, //启用/禁用 vscode-eslint。默认情况下是启用的。
 "eslint.alwaysShowStatus": true, // vscode右下角始终展示ESLint状态，建议打开
 "eslint.trace.server": "message", // eslint打印详细日志 ['messages', 'verbose']
@@ -90,7 +91,7 @@
 
 ## 实时提示格式化 - 推荐方式
 
-> 依赖： eslint包、prettier包、eslint-config-prettier包、eslint-plugin-prettier包、eslint vscode插件、vscode配置、eslintrc配置文件。
+> 依赖： eslint包、prettier包、eslint-config-prettier包、eslint-plugin-prettier包、eslint vscode插件、vscode配置、eslintrc配置文件、prettierrc配置文件。
 
 > vscode配置以上述`代码质量校验`为基础
 
@@ -104,9 +105,9 @@ eslint-config-prettier 包作用：关掉所有和Prettier冲突的ESLint的配�
 ```json
 "extends": ["prettier"] // prettier一定要是最后一个，才能确保覆盖
 ```
-这样配置完后，在点击保存文件时候就可以自动以prettier规则格式化了，但是还不能实时提示格式化问题。
 
-eslint-config-prettier 包作用：把Prettier推荐格式问题的配置以ESLint rules的方式写入，所有不符合格式规范的都报"error"
+eslint-config-prettier 包作用：把Prettier推荐格式问题的配置以ESLint rules的方式写入，所有不符合格式规范的都报"error"。
+先注册插件，再写入rules
 ```json 
 "plugins": ["prettier"],      
 "rules": {        
@@ -124,6 +125,10 @@ rules: {
   ],
 },
 ```
-具体参考文档： https://prettier.io/docs/en/options.html
+> 具体参考文档： https://prettier.io/docs/en/options.html
+
+也可以直接在prettierrc配置文件中配置(注：修改prettierrc配置文件可能需要重启vscode才能生效) - 推荐方式
+
+
 
 至此，结束。

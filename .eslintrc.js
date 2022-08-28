@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ["eslint:recommended", "prettier"], // eslint-config-prettier
+  extends: ["eslint:recommended", "prettier"], // eslint-config-prettier，确保放在数组末尾
   plugins: ["prettier"], // eslint-plugin-prettier
   //   overrides: [],
   parserOptions: {
@@ -12,6 +12,6 @@ module.exports = {
     sourceType: "module",
   },
   rules: {
-    "prettier/prettier": ["error"],
+    "prettier/prettier": "error",
   },
 };
